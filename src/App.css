@@ -1,0 +1,505 @@
+:root {
+  --pink: #FF5C8D;
+  --purple: #9D7BFF;
+  --blue: #63D8FF;
+  --orange: #FFB35C;
+  --black: #0a0a0a;
+  --white: #ffffff;
+  --light-grey: #f9f9f9;
+  --grey-text: #666666;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* 1. RESET CRÍTICO */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--white);
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* 2. NAVBAR PROFESIONAL */
+.navbar {
+  background: var(--black);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 75px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nav-links li:hover { color: var(--pink); }
+
+.mobile-menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+/* 3. HERO (Alineación Izquierda - Pro) */
+.hero-section {
+  background: var(--black);
+  color: white;
+  padding: 80px 0 120px;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-content {
+  text-align: left;
+}
+
+.badge-stamp {
+  background: var(--orange);
+  color: var(--black);
+  padding: 6px 15px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: inline-block;
+  transform: rotate(-3deg);
+  margin-bottom: 25px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 25px;
+  letter-spacing: -1.5px;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  max-width: 500px;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+
+.hero-buttons { display: flex; gap: 15px; }
+
+.btn-primary {
+  background: var(--pink);
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-secondary {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 92, 141, 0.3); }
+
+.hero-main-img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* 4. EXPERIENCIA & CARDS */
+.white-section { padding: 100px 0; }
+
+.pill-black {
+  background: var(--black);
+  color: white;
+  padding: 4px 15px;
+  border-radius: 50px;
+}
+
+.section-subtitle {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 60px;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.exp-card {
+  padding: 50px 30px;
+  border-radius: 25px;
+  color: white;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.exp-card:hover { transform: translateY(-10px); }
+.exp-card h4 { font-size: 1.5rem; margin-top: 20px; font-weight: 800; }
+
+.pink-bg { background: var(--pink); }
+.purple-bg { background: var(--purple); }
+.blue-bg { background: var(--blue); }
+.orange-bg { background: var(--orange); }
+
+/* 5. MISIÓN & VISIÓN */
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.mission-card {
+  background: var(--light-grey);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: left;
+  border: 1px solid #eee;
+  transition: var(--transition);
+}
+
+.mission-card:hover { background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+.m-card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 25px;
+}
+
+.btn-black-rounded {
+  background: var(--black);
+  color: white;
+  border: none;
+  padding: 18px 40px;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 6. FOOTER */
+.footer-black {
+  background: var(--black);
+  color: white;
+  padding: 80px 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.footer-logo { height: 80px; margin-bottom: 25px; }
+
+.footer-contact-group {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-col strong { display: block; margin-bottom: 15px; color: var(--pink); text-transform: uppercase; font-size: 12px; }
+.footer-col p { color: #888; font-size: 14px; margin-bottom: 5px; }
+
+/* 7. RESPONSIVE (Menú Hamburguesa) */
+@media (max-width: 1024px) {
+  .mobile-menu-toggle { display: block; color: white; }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--black);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    z-index: 1000;
+  }
+
+  .nav-links.active { right: 0; }
+
+  .nav-links li { font-size: 24px; }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content { display: flex; flex-direction: column; align-items: center; }
+  .hero-buttons { justify-content: center; }
+  
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .footer-contact-group { justify-content: center; flex-wrap: wrap; }
+}
+/* --- ESTILOS DE BOTONES PROFESIONALES --- */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+/* Botón Primario (Pink) */
+.btn-pink, .btn-primary {
+  background-color: var(--pink);
+  color: var(--white);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(255, 92, 141, 0.2);
+}
+
+.btn-pink:hover, .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 92, 141, 0.4);
+  filter: brightness(1.1);
+}
+
+/* Botón Secundario (Grey/Dark) */
+.btn-grey, .btn-secondary {
+  background-color: #2a2a2a;
+  color: var(--white);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-grey:hover, .btn-secondary:hover {
+  background-color: #404040;
+  transform: translateY(-3px);
+}
+
+/* Botón Redondeado (Nosotros) */
+.btn-black-rounded {
+  background-color: var(--black);
+  color: var(--white);
+  border: 2px solid var(--black);
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 20px;
+}
+
+.btn-black-rounded:hover {
+  background-color: transparent;
+  color: var(--black);
+}
+
+/* --- SECCIÓN NUESTRA ACTUALIDAD --- */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.news-card {
+  background: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid #eee;
+  text-align: left;
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.news-img-box {
+  width: 100%;
+  height: 250px;
+  background-color: #e0e0e0; /* Placeholder para las imágenes */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de zoom en la imagen al hacer hover */
+.news-card:hover .news-img-box {
+  background-color: #d0d0d0;
+}
+
+.news-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-card p {
+  padding: 30px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--grey-text);
+  margin: 0;
+}
+
+/* Adaptación para tablets/móviles */
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-pink, .btn-grey {
+    width: 100%;
+    text-align: center;
+  }
+}
+/* --- RESET PARA PANTALLA COMPLETA --- */
+html, body, #root, .page-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+/* --- SECCIÓN COLABORADORES (COMFAMA) PROFESIONAL --- */
+.collab-section {
+  background: #fdfdfd; /* Un gris casi blanco muy elegante */
+  padding: 80px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.collab-desc {
+  max-width: 800px;
+  margin: 0 auto 50px;
+  color: var(--grey-text);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.collab-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px; /* Espacio amplio entre logos para look premium */
+  flex-wrap: wrap;
+  filter: grayscale(100%); /* Logos en gris para minimalismo */
+  opacity: 0.6;
+  transition: var(--transition);
+}
+
+.collab-logos:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.collab-logos img {
+  height: 50px; /* Tamaño uniforme y controlado */
+  width: auto;
+  object-fit: contain;
+}
+
+/* --- AJUSTE DE CONTENEDORES --- */
+.white-section, .hero-section, .footer-black {
+  width: 100%;
+  margin: 0;
+}
+
+/* El .container solo centra el texto, no corta el fondo de color */
+.container {
+  max-width: 1400px; /* Más ancho para pantallas modernas */
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* --- ACTUALIDAD (MINIMALISTA) --- */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.news-card {
+  border: none; /* Eliminamos bordes para más limpieza */
+  background: var(--light-grey);
+}
+
+.news-img-box {
+  border-radius: 16px; /* Solo la caja de imagen redondeada */
+  height: 300px;
+}
