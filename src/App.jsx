@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const videoRef = useRef(null); // Referencia para controlar el video
+  const videoRef = useRef(null); 
 
   // EFECTO 1: Forzar reproducción del video
   useEffect(() => {
@@ -48,7 +48,7 @@ function App() {
         </div>
       </nav>
 
-      {/* --- HERO CON VIDEO REFORZADO --- */}
+      {/* --- HERO CON VIDEO --- */}
       <header className="hero-section">
         <div className="container hero-container">
           <div className="hero-content">
@@ -60,12 +60,18 @@ function App() {
             </div>
           </div>
           <div className="hero-image-wrapper">
-            {/* Imagen estática de los niños colombianitos */}
-            <img
-              src="/ninos.png"
-              alt="Niños músicos colombianos"
+            {/* Video de los niños reemplazando la imagen estática */}
+            <video
+              ref={videoRef}
+              src="/ninos.mp4"
               className="hero-main-img"
-            />
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              Tu navegador no soporta videos.
+            </video>
           </div>
         </div>
       </header>
