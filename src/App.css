@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Poppins:wght@300;400;500;600;800&display=swap');
 
 
 :root {
@@ -95,7 +94,7 @@ html, body {
 }
 
 .badge-stamp {
-  background: #FF5C8D;
+  background: #ffffff;
   color: var(--black);
   padding: 6px 15px;
   border-radius: 4px;
@@ -121,6 +120,34 @@ html, body {
   margin-bottom: 40px;
   color: rgba(255,255,255,0.7);
   line-height: 1.6;
+}
+.hero-badge-outline {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1.5px solid var(--white); /* Usa tu variable de rosado */
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 50px; /* Bordes totalmente redondeados */
+  margin-bottom: 20px; /* Espacio antes del título h1 */
+  cursor: default;
+  transition: var(--transition);
+}
+
+/* Un pequeño efecto sutil al pasar el mouse */
+.hero-badge-outline:hover {
+  background-color: var(--pink);
+  color: white;
+}
+
+/* Asegurar que el título no quede pegado en móvil */
+@media (max-width: 768px) {
+  .hero-badge-outline {
+    margin-bottom: 15px;
+  }
 }
 
 .hero-buttons { display: flex; gap: 15px; }
@@ -187,7 +214,6 @@ html, body {
 .exp-card:hover { transform: translateY(-10px); }
 .exp-card h4 { font-size: 1.5rem; margin-top: 20px; font-weight: 800; }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 /* Aplicar Poppins a los elementos que usen estos fondos */
 .pink-bg, .purple-bg, .blue-bg, .orange-bg {
@@ -557,8 +583,6 @@ html, body, #root, .page-wrapper {
   letter-spacing: 0.5px;
 }
 
-/* COLORES DINÁMICOS MINIMALISTAS */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 /* Aplicar Poppins de forma global a estas clases */
 .pink-text, .purple-text, .blue-text, .orange-text {
@@ -816,7 +840,7 @@ html, body, #root, .page-wrapper {
   .section-subtitle { font-size: 1.5rem; }
 }
 
-/* --- SECCIÓN NOTICIAS NEGRA --- */
+/* --- SECCIÓN NOTICIAS --- */
 .news-dark-section {
   background: #050505; /* Un negro más profundo que el estándar */
   padding: 120px 0;
@@ -863,11 +887,7 @@ html, body, #root, .page-wrapper {
   color: var(--orange);
 }
 
-/* GRID DE NOTICIAS CON LÍNEAS */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
 
-/* GRID DE NOTICIAS CON LÍNEAS */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap');
 
 /* GRID DE NOTICIAS CON LÍNEAS */
 .news-grid-minimal {
@@ -946,7 +966,6 @@ html, body, #root, .page-wrapper {
     font-size: 1.4rem;
   }
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
   --mustard: var(--pink); /* Amarillo Mostaza */
