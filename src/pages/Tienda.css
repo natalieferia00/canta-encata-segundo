@@ -1,0 +1,137 @@
+/* --- Tienda.css --- */
+
+.tienda-page {
+  background-color: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+.tienda-hero {
+  padding: 180px 0 60px;
+}
+
+.tienda-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -3px;
+}
+
+/* Controles */
+.tienda-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 30px;
+}
+
+.categories-pills {
+  display: flex;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #111;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+/* Grid de Productos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.product-card {
+  transition: all 0.4s var(--ease-premium);
+}
+
+.product-image-wrapper {
+  background: #0a0a0a;
+  aspect-ratio: 1/1;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-tag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--gold);
+  color: black;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.btn-add-cart {
+  position: absolute;
+  bottom: -60px; /* Escondido */
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.4s var(--ease-premium);
+}
+
+.product-card:hover .btn-add-cart {
+  bottom: 0;
+}
+
+.product-info {
+  padding-top: 25px;
+}
+
+.info-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5px;
+}
+
+.info-main h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  max-width: 70%;
+}
+
+.price {
+  font-weight: 900;
+  color: var(--gold);
+}
+
+.product-cat {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

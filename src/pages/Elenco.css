@@ -1,0 +1,153 @@
+/* --- Elenco.css --- */
+
+.elenco-wrapper {
+  background: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* Header Estilo Editorial */
+.elenco-header {
+  padding: 120px 0 60px;
+  text-align: left;
+}
+
+.elenco-title {
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -5px;
+  margin: 20px 0;
+}
+
+.elenco-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Navegación de Filtros */
+.elenco-filters {
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 20px 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-flex {
+  display: flex;
+  gap: 40px;
+}
+
+.filter-link {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--ease-premium);
+  padding: 10px 0;
+  position: relative;
+}
+
+.filter-link.active, .filter-link:hover {
+  color: var(--gold);
+}
+
+.filter-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+}
+
+/* Grid de Artistas */
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 60px 40px;
+  padding: 80px 0;
+}
+
+.artist-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.artist-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-premium);
+  filter: grayscale(100%); /* Efecto editorial serio */
+}
+
+.artist-entry:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%); /* El color vuelve al pasar el mouse */
+}
+
+.artist-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 8px 16px;
+  font-weight: 900;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.artist-meta {
+  margin-top: 25px;
+}
+
+.artist-meta h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.artist-category {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Footer CTA */
+.cta-elenco-box {
+  background: #111;
+  padding: 80px;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.cta-elenco-box h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter-flex { gap: 20px; overflow-x: auto; padding-bottom: 10px; }
+  .elenco-title { font-size: 3.5rem; }
+  .cta-elenco-box { padding: 40px 20px; }
+}

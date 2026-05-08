@@ -1,0 +1,353 @@
+/* --- Cursos.css Optimizado: Split Layout --- */
+
+:root {
+  --gold: #FFB800;
+  --black: #000000;
+  --white: #ffffff;
+  --gray-dark: #111111;
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cursos-page {
+  background: var(--black);
+  color: var(--white);
+  min-height: 100vh;
+}
+
+/* --- SECCIÓN NEGRA: HERO & GRID --- */
+.cursos-hero {
+  padding: 180px 0 100px;
+  background: radial-gradient(circle at top right, rgba(255,184,0,0.05) 0%, transparent 40%);
+}
+
+.eyebrow-gold {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-weight: 800;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.cursos-title {
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -4px;
+  margin-bottom: 40px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 50px;
+  padding-bottom: 150px;
+}
+
+.course-card {
+  background: var(--gray-dark);
+  padding: 50px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.6s var(--ease-premium);
+}
+
+.course-card:hover {
+  transform: translateY(-12px);
+  border-color: var(--gold);
+}
+
+/* --- SECCIÓN BLANCA: PROCESO DE INSCRIPCIÓN --- */
+.enrollment-steps {
+  background: var(--white); /* Fondo Blanco */
+  color: var(--black);      /* Texto Negro para toda la sección */
+  padding: 160px 0;
+  position: relative;
+}
+
+.steps-header {
+  margin-bottom: 100px;
+  max-width: 600px;
+}
+
+.eyebrow-dark {
+  letter-spacing: 5px;
+  font-weight: 800;
+  font-size: 0.7rem;
+  color: #888; /* Gris suave para el "eyebrow" sobre blanco */
+  display: block;
+  margin-bottom: 20px;
+}
+
+.steps-title {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--black); /* Aseguramos que el título sea negro */
+}
+
+/* Timeline Layout */
+.steps-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.step-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.step-row.reverse {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+/* --- Estilo de Botón "Ver Programa Completo" --- */
+
+.btn-enroll {
+  /* Reset de estilos base */
+  background: transparent;
+  border: none;
+  padding: 12px 0;
+  margin-top: 30px;
+  
+  /* Flexbox para alinear texto e icono */
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  
+  /* Tipografía */
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+  /* Interactividad */
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s var(--ease-premium);
+}
+
+/* Línea decorativa inferior (Underline Animado) */
+.btn-enroll::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px; /* Ancho inicial corto */
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.4s var(--ease-premium);
+}
+
+/* --- ESTADOS DE INTERACCIÓN (HOVER) --- */
+
+.btn-enroll:hover {
+  color: var(--gold);
+  gap: 20px; /* El icono se desplaza a la derecha suavemente */
+}
+
+.btn-enroll:hover::after {
+  width: 100%; /* La línea crece al ancho total del texto */
+}
+
+/* Micro-animación para el icono de la flecha */
+.btn-enroll svg {
+  transition: transform 0.4s var(--ease-premium);
+}
+
+.btn-enroll:hover svg {
+  transform: translateX(5px); /* Pequeño empuje visual */
+}
+
+/* Estado Focus para Accesibilidad */
+.btn-enroll:focus {
+  outline: 2px solid rgba(255, 184, 0, 0.3);
+  outline-offset: 8px;
+}
+
+/* Números Gigantes */
+.huge-num {
+  font-size: clamp(8rem, 15vw, 12rem);
+  font-weight: 900;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1); /* Trazo negro muy sutil */
+  font-family: serif;
+}
+
+/* Contenido de cada paso */
+.step-content-box h4 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+  color: var(--black); /* Títulos de pasos en negro */
+}
+
+.step-content-box p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333; /* Texto de párrafo en gris muy oscuro/negro */
+  max-width: 450px;
+}
+
+.step-decoration {
+  width: 60px;
+  height: 4px;
+  background: var(--gold);
+  margin-top: 30px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .step-row, .step-row.reverse {
+    flex-direction: column;
+    text-align: left;
+    gap: 40px;
+  }
+  
+  .huge-num { font-size: 6rem; }
+  
+  .step-content-box p, .step-decoration {
+    margin-left: 0 !important;
+  }
+}
+/* --- SECCIÓN FAQ (ZONA BLANCA) --- */
+
+.faq-section {
+  background: var(--white);
+  color: var(--black);
+  padding: 120px 0 160px;
+  border-top: 1px solid #000000;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Layout asimétrico editorial */
+  gap: 80px;
+}
+
+.faq-info {
+  position: sticky;
+  top: 120px;
+  height: fit-content;
+}
+
+.faq-main-title {
+    color: #000000;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 30px;
+  letter-spacing: -2px;
+}
+
+.faq-text {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* --- ACORDEÓN --- */
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid #000000;
+  padding: 35px 0;
+  cursor: pointer;
+  transition: var(--ease-premium);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid #000000;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.faq-question h4 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  transition: all 0.3s ease;
+}
+
+.faq-icon {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  transition: transform 0.4s var(--ease-premium);
+}
+
+/* --- ESTADO ACTIVO --- */
+
+.faq-item.active h4 {
+  color: var(--gold);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(0deg); /* Controlado por el cambio de + a - en el JSX */
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s var(--ease-premium);
+  opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px; /* Suficiente para el contenido */
+  margin-top: 25px;
+  opacity: 1;
+}
+
+.faq-answer p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 90%;
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 1024px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .faq-info {
+    position: static;
+  }
+
+  .faq-main-title {
+    font-size: 3rem;
+  }
+  
+  .faq-item {
+    padding: 25px 0;
+  }
+  
+  .faq-question h4 {
+    font-size: 1.2rem;
+  }
+}

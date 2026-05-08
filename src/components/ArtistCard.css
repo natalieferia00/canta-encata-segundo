@@ -1,0 +1,53 @@
+.artist-image-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 8px; /* Ajustado para el estilo minimalista del proyecto */
+  background: #111;
+}
+
+.artist-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: grayscale(100%);
+}
+
+.artist-entry:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.artist-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #FFB800; /* Var --gold */
+  color: #000;
+  padding: 8px 16px;
+  font-weight: 900;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.artist-meta {
+  margin-top: 20px;
+}
+
+.artist-meta h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.artist-category {
+  color: #FFB800;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

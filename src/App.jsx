@@ -1,26 +1,33 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Music, BookOpen, Headphones, ShoppingBag, Menu, X, ArrowRight, ChevronDown } from 'lucide-react';
+import { Music, BookOpen, Headphones, ShoppingBag, Menu, X, ArrowRight, ChevronDown, Clock } from 'lucide-react';
 import './App.css';
 
-import Eventos from './pages/Eventos'; 
-import DetalleEvento from './pages/DetalleEvento'; // Asegúrate de crear este archivo
+// Importación de Páginas
+import Eventos from './pages/Eventos';
+import DetalleEvento from './pages/DetalleEvento';
+import Nosotros from './pages/Nosotros';
+import Elenco from './pages/Elenco';
+import Noticias from './pages/Noticias';
+import Cursos from './pages/Cursos';
+import Tienda from './pages/Tienda';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState(null); 
-  const [currentView, setCurrentView] = useState('home'); 
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [currentView, setCurrentView] = useState('home');
   const [selectedEvent, setSelectedEvent] = useState(null);
   const videoRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    setActiveSubmenu(null); 
+    setActiveSubmenu(null);
   };
 
   const navigateTo = (view, eventData = null) => {
     setCurrentView(view);
-    setSelectedEvent(eventData); 
+    setSelectedEvent(eventData);
     setIsMenuOpen(false); // Cerramos menú al navegar
+    setActiveSubmenu(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -49,36 +56,39 @@ function App() {
 
   return (
     <div className={`page-wrapper ${isMenuOpen ? 'no-scroll' : ''}`}>
+      {/* Overlay para menú móvil */}
       <div className={`menu-overlay ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}></div>
 
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="container navbar-container">
-          <img 
-            src="/logo.png" 
-            alt="Colombia Canta" 
-            className="nav-logo" 
-            onClick={() => navigateTo('home')} 
-            style={{cursor: 'pointer'}}
+          <img
+            src="/logo.png"
+            alt="Colombia Canta"
+            className="nav-logo"
+            onClick={() => navigateTo('home')}
+            style={{ cursor: 'pointer' }}
           />
-          
+
           <div className="mobile-menu-toggle" onClick={toggleMenu}>
             {isMenuOpen ? <X size={32} color="white" /> : <Menu size={32} color="white" />}
           </div>
 
           <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+            {/* NOSOTROS */}
             <li className={`has-submenu ${activeSubmenu === 'nosotros' ? 'open' : ''}`}>
               <div className="menu-trigger" onClick={() => handleSubmenuClick('nosotros')}>
                 <span>Nosotros</span>
                 <ChevronDown size={16} className="chevron" />
               </div>
               <ul className="submenu">
-                <li onClick={() => navigateTo('home')}>Quiénes somos</li>
-                <li onClick={() => navigateTo('home')}>Noticias</li>
-                <li onClick={() => navigateTo('home')}>Contacto</li>
+                <li onClick={() => navigateTo('nosotros')}>Quiénes somos</li>
+                <li onClick={() => navigateTo('elenco')}>Elenco artístico</li>
+                <li onClick={() => navigateTo('noticias')}>Noticias</li>
               </ul>
             </li>
 
+            {/* EVENTOS */}
             <li className={`has-submenu ${activeSubmenu === 'eventos' ? 'open' : ''}`}>
               <div className="menu-trigger" onClick={() => handleSubmenuClick('eventos')}>
                 <span>Eventos</span>
@@ -91,15 +101,16 @@ function App() {
               </ul>
             </li>
 
-            <li onClick={() => navigateTo('home')}>Tienda</li>
-            
+            {/* TIENDA */}
+            <li onClick={() => navigateTo('tienda')}>Tienda</li>
+            {/* INSCRIPCIONES */}
             <li className={`has-submenu ${activeSubmenu === 'inscripciones' ? 'open' : ''}`}>
               <div className="menu-trigger" onClick={() => handleSubmenuClick('inscripciones')}>
                 <span>Inscripciones</span>
                 <ChevronDown size={16} className="chevron" />
               </div>
               <ul className="submenu">
-                <li onClick={() => navigateTo('home')}>Nuestros cursos</li>
+                <li onClick={() => navigateTo('cursos')}>Nuestros cursos</li>
                 <li onClick={() => navigateTo('home')}>Cómo inscribirse</li>
               </ul>
             </li>
@@ -109,6 +120,7 @@ function App() {
 
       {/* RENDERIZADO CONDICIONAL DE VISTAS */}
       <main>
+        {/* VISTA: HOME */}
         {currentView === 'home' && (
           <>
             <header className="hero-section">
@@ -134,11 +146,12 @@ function App() {
                 <div className="experience-grid-modern">
                   {[
                     { title: "Eventos y conciertos", icon: <Music />, color: "pink", p: "Vibra con el porro y la cumbia en escena.", target: 'eventos' },
-                    { title: "Nuestros cursos", icon: <BookOpen />, color: "purple", p: "Encuentra tu voz con maestros expertos.", target: 'home' },
+
+                    { title: "Nuestros cursos", icon: <BookOpen />, color: "purple", p: "Encuentra tu voz con maestros expertos.", target: 'cursos' },
                     { title: "Escúchanos", icon: <Headphones />, color: "blue", p: "Escucha nuestras producciones originales.", target: 'home' },
-                    { title: "Tienda Cultural", icon: <ShoppingBag />, color: "orange", p: "Apoya el talento local y lleva la tradición.", target: 'home' }
+                    { title: "Tienda Cultural", icon: <ShoppingBag />, color: "orange", p: "Apoya el talento local y lleva la tradición.", target: 'tienda' }
                   ].map((item, index) => (
-                    <div className="exp-card-modern" key={index} onClick={() => navigateTo(item.target)} style={{cursor: 'pointer'}}>
+                    <div className="exp-card-modern" key={index} onClick={() => navigateTo(item.target)} style={{ cursor: 'pointer' }}>
                       <div className={`exp-icon-circle ${item.color}-bg-light`}>
                         {React.cloneElement(item.icon, { className: `${item.color}-icon`, size: 24 })}
                       </div>
@@ -181,7 +194,7 @@ function App() {
                     { date: "02 MAY", title: "Festival de Tradiciones 2026: Medellín se viste de gala", tag: "EVENTOS" },
                     { date: "28 ABR", title: "Nuevos cursos de cuerdas frotadas abren inscripciones", tag: "ACADEMIA" }
                   ].map((news, index) => (
-                    <div className="news-item-minimal" key={index} onClick={() => navigateTo('eventos')} style={{cursor: 'pointer'}}>
+                    <div className="news-item-minimal" key={index} onClick={() => navigateTo('eventos')} style={{ cursor: 'pointer' }}>
                       <div className="news-meta">
                         <span className="news-date">{news.date}</span>
                         <span className="news-category">{news.tag}</span>
@@ -233,13 +246,42 @@ function App() {
           </>
         )}
 
+        {/* VISTA: NOSOTROS (HISTORIA & LEGADO) */}
+        {currentView === 'nosotros' && (
+          <Nosotros navigateTo={navigateTo} />
+        )}
+
+        {/* VISTA: ELENCO ARTÍSTICO */}
+        {currentView === 'elenco' && (
+          <Elenco />
+        )}
+
+        {/* VISTA: NOTICIAS & CRÓNICAS */}
+        {currentView === 'noticias' && (
+          <Noticias />
+        )}
+
+        {/* VISTA: EVENTOS */}
         {currentView === 'eventos' && (
           <Eventos navigateTo={navigateTo} />
         )}
+        {/* VISTA: TIENDA CULTURAL */}
+        {currentView === 'tienda' && (
+          <Tienda />
+        )}
 
+        {/* VISTA: NUESTROS CURSOS */}
+        {currentView === 'cursos' && (
+          <Cursos />
+        )}
+
+        {/* VISTA: DETALLE DE EVENTO */}
         {currentView === 'detalle' && (
           <DetalleEvento evento={selectedEvent} navigateTo={navigateTo} />
         )}
+
+
+
       </main>
 
       {/* FOOTER */}
